@@ -3,12 +3,11 @@ using DreamTeam.Application.Common.Interfaces;
 using DreamTeam.Infrastructure.Data;
 using DreamTeam.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-
 using NSwag;
 using NSwag.Generation.Processors.Security;
 using ZymLabs.NSwag.FluentValidation;
 
-namespace Microsoft.Extensions.DependencyInjection;
+namespace DreamTeam.Web;
 
 public static class DependencyInjection
 {
@@ -21,7 +20,7 @@ public static class DependencyInjection
         services.AddHttpContextAccessor();
 
         services.AddHealthChecks()
-            .AddDbContextCheck<ApplicationDbContext>();
+            .AddDbContextCheck<DreamTeamContext>();
 
         services.AddExceptionHandler<CustomExceptionHandler>();
 

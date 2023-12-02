@@ -1,4 +1,5 @@
-﻿using DreamTeam.Application.Common.Interfaces;
+﻿/*
+using DreamTeam.Application.Common.Interfaces;
 using DreamTeam.Domain.Events;
 
 namespace DreamTeam.Application.TodoItems.Commands.DeleteTodoItem;
@@ -29,3 +30,4 @@ public class DeleteTodoItemCommandHandler : IRequestHandler<DeleteTodoItemComman
     }
 
 }
+*/

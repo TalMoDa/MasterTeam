@@ -1,4 +1,5 @@
-﻿using DreamTeam.Domain.Entities;
+﻿/*
+using DreamTeam.Domain.Entities;
 
 namespace DreamTeam.Application.TodoLists.Queries.GetTodos;
 
@@ -25,3 +26,4 @@ public class TodoListDto
         }
     }
 }
+*/

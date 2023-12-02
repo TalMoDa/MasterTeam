@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 using DreamTeam.Application.Common.Behaviours;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.Extensions.DependencyInjection;
+namespace DreamTeam.Application;
 
 public static class DependencyInjection
 {

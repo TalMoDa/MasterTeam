@@ -1,4 +1,5 @@
-﻿namespace DreamTeam.Application.TodoItems.Commands.CreateTodoItem;
+﻿/*
+namespace DreamTeam.Application.TodoItems.Commands.CreateTodoItem;
 
 public class CreateTodoItemCommandValidator : AbstractValidator<CreateTodoItemCommand>
 {
@@ -9,3 +10,4 @@ public class CreateTodoItemCommandValidator : AbstractValidator<CreateTodoItemCo
             .NotEmpty();
     }
 }
+*/

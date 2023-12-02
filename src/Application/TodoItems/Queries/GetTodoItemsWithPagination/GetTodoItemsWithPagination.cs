@@ -1,4 +1,5 @@
-﻿using DreamTeam.Application.Common.Interfaces;
+﻿/*
+using DreamTeam.Application.Common.Interfaces;
 using DreamTeam.Application.Common.Mappings;
 using DreamTeam.Application.Common.Models;
 
@@ -31,3 +32,4 @@ public class GetTodoItemsWithPaginationQueryHandler : IRequestHandler<GetTodoIte
             .PaginatedListAsync(request.PageNumber, request.PageSize);
     }
 }
+*/

@@ -3,14 +3,15 @@ using DreamTeam.Domain.Constants;
 using DreamTeam.Infrastructure.Data;
 using DreamTeam.Infrastructure.Data.Interceptors;
 using DreamTeam.Infrastructure.Identity;
+using DreamTeam.Infrastructure.Settings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection.Settings;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Microsoft.Extensions.DependencyInjection;
+namespace DreamTeam.Infrastructure;
 
 public static class DependencyInjection
 {
@@ -25,35 +26,36 @@ public static class DependencyInjection
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
 
-        services.AddDbContext<ApplicationDbContext>((sp, options) =>
+        services.AddDbContext<IApplicationDbContext, DreamTeamContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
             options.UseSqlServer(connectionString.DefaultConnection);
         });
 
-        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
+        //services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<DreamTeamContext>());
 
-        services.AddScoped<ApplicationDbContextInitialiser>();
+        //services.AddScoped<ApplicationDbContextInitialiser>();
 
         services.AddAuthentication()
             .AddBearerToken(IdentityConstants.BearerScheme);
 
         services.AddAuthorizationBuilder();
 
-        services
+        /*services
             .AddIdentityCore<ApplicationUser>()
             .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddApiEndpoints();
+            .AddEntityFrameworkStores<DreamTeamContext>()
+            .AddApiEndpoints();*/
 
         services.AddSingleton(TimeProvider.System);
-        services.AddTransient<IIdentityService, IdentityService>();
+        //services.AddTransient<IIdentityService, IdentityService>();
 
-        services.AddAuthorization(options =>
-            options.AddPolicy(Policies.CanPurge, policy => policy.RequireRole(Roles.Administrator)));
+        /*services.AddAuthorization(options =>
+            options.AddPolicy(Policies.CanPurge, policy => policy.RequireRole(Roles.Administrator)));*/
 
         return services;
     }
+
 
     private static IServiceCollection AddInfrastructureSettings(this IServiceCollection services,
         IConfiguration configuration)

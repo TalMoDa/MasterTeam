@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Extensions.DependencyInjection.Settings;
+﻿namespace DreamTeam.Infrastructure.Settings;
 
 public class ConnectionStrings
 {

@@ -1,4 +1,5 @@
-﻿using DreamTeam.Domain.Events;
+﻿/*
+using DreamTeam.Domain.Events;
 using Microsoft.Extensions.Logging;
 
 namespace DreamTeam.Application.TodoItems.EventHandlers;
@@ -19,3 +20,4 @@ public class TodoItemCompletedEventHandler : INotificationHandler<TodoItemComple
         return Task.CompletedTask;
     }
 }
+*/

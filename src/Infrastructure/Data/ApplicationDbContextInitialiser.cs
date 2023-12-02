@@ -27,11 +27,12 @@ public static class InitialiserExtensions
 public class ApplicationDbContextInitialiser
 {
     private readonly ILogger<ApplicationDbContextInitialiser> _logger;
-    private readonly ApplicationDbContext _context;
+    private readonly DreamTeamContext _context;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
 
-    public ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+    public ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger, DreamTeamContext context,
+        UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
     {
         _logger = logger;
         _context = context;
@@ -76,18 +77,19 @@ public class ApplicationDbContextInitialiser
         }
 
         // Default users
-        var administrator = new ApplicationUser { UserName = "administrator@localhost", Email = "administrator@localhost" };
+        var administrator =
+            new ApplicationUser {UserName = "administrator@localhost", Email = "administrator@localhost"};
 
         if (_userManager.Users.All(u => u.UserName != administrator.UserName))
         {
             await _userManager.CreateAsync(administrator, "Administrator1!");
             if (!string.IsNullOrWhiteSpace(administratorRole.Name))
             {
-                await _userManager.AddToRolesAsync(administrator, new [] { administratorRole.Name });
+                await _userManager.AddToRolesAsync(administrator, new[] {administratorRole.Name});
             }
         }
 
-        // Default data
+        /*// Default data
         // Seed, if necessary
         if (!_context.TodoLists.Any())
         {
@@ -101,9 +103,9 @@ public class ApplicationDbContextInitialiser
                     new TodoItem { Title = "Realise you've already done two things on the list! 🤯"},
                     new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" },
                 }
-            });
+            });*/
 
-            await _context.SaveChangesAsync();
-        }
+        await _context.SaveChangesAsync();
     }
 }
+

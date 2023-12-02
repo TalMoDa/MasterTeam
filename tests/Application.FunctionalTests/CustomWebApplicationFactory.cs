@@ -1,6 +1,7 @@
 ﻿using System.Data.Common;
 using DreamTeam.Application.Common.Interfaces;
 using DreamTeam.Infrastructure.Data;
+using DreamTeam.Web;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -31,8 +32,8 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
                 .AddTransient(provider => Mock.Of<IUser>(s => s.Id == GetUserId()));
 
             services
-                .RemoveAll<DbContextOptions<ApplicationDbContext>>()
-                .AddDbContext<ApplicationDbContext>((sp, options) =>
+                .RemoveAll<DbContextOptions<DreamTeamContext>>()
+                .AddDbContext<DreamTeamContext>((sp, options) =>
                 {
                     options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
                     options.UseSqlServer(_connection);

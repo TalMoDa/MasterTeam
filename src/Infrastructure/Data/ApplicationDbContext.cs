@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿/*
+using System.Reflection;
 using DreamTeam.Application.Common.Interfaces;
 using DreamTeam.Domain.Entities;
 using DreamTeam.Infrastructure.Identity;
@@ -15,10 +16,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
 
     public DbSet<TodoItem> TodoItems => Set<TodoItem>();
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    /*protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         base.OnModelCreating(builder);
-    }
+    }#1#
 }
+*/

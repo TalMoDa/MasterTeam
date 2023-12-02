@@ -3,9 +3,6 @@ using System.Runtime.Serialization;
 using AutoMapper;
 using DreamTeam.Application.Common.Interfaces;
 using DreamTeam.Application.Common.Models;
-using DreamTeam.Application.TodoItems.Queries.GetTodoItemsWithPagination;
-using DreamTeam.Application.TodoLists.Queries.GetTodos;
-using DreamTeam.Domain.Entities;
 using NUnit.Framework;
 
 namespace DreamTeam.Application.UnitTests.Common.Mappings;
@@ -29,7 +26,7 @@ public class MappingTests
         _configuration.AssertConfigurationIsValid();
     }
 
-    [Test]
+    /*[Test]
     [TestCase(typeof(TodoList), typeof(TodoListDto))]
     [TestCase(typeof(TodoItem), typeof(TodoItemDto))]
     [TestCase(typeof(TodoList), typeof(LookupDto))]
@@ -40,7 +37,7 @@ public class MappingTests
         var instance = GetInstanceOf(source);
 
         _mapper.Map(instance, source, destination);
-    }
+    }*/
 
     private object GetInstanceOf(Type type)
     {

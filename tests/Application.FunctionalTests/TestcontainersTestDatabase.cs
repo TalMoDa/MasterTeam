@@ -1,4 +1,5 @@
 ﻿using System.Data.Common;
+using DreamTeam.Infrastructure.Context;
 using DreamTeam.Infrastructure.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -29,13 +30,13 @@ public class TestcontainersTestDatabase : ITestDatabase
 
         _connection = new SqlConnection(_connectionString);
 
-        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+        var options = new DbContextOptionsBuilder<DreamTeamGeneratedContext>()
             .UseSqlServer(_connectionString)
             .Options;
 
-        var context = new ApplicationDbContext(options);
+        var context = new DreamTeamContext(options);
 
-        context.Database.Migrate();
+        await context.Database.MigrateAsync();
 
         _respawner = await Respawner.CreateAsync(_connectionString, new RespawnerOptions
         {

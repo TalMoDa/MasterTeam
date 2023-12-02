@@ -1,6 +1,5 @@
-﻿using DreamTeam.Application.TodoLists.Commands.CreateTodoList;
-using DreamTeam.Application.TodoLists.Commands.DeleteTodoList;
-using DreamTeam.Application.TodoLists.Commands.UpdateTodoList;
+﻿
+/*
 using DreamTeam.Application.TodoLists.Queries.GetTodos;
 
 namespace DreamTeam.Web.Endpoints;
@@ -11,32 +10,33 @@ public class TodoLists : EndpointGroupBase
     {
         app.MapGroup(this)
             .RequireAuthorization()
-            .MapGet(GetTodoLists)
-            .MapPost(CreateTodoList)
-            .MapPut(UpdateTodoList, "{id}")
-            .MapDelete(DeleteTodoList, "{id}");
+            .MapGet(GetUsersLists)
+            .MapPost(CreateUser)
+            .MapPut(UpdateUser, "{id}")
+            .MapDelete(DeleteUser, "{id}");
     }
 
-    public async Task<TodosVm> GetTodoLists(ISender sender)
+    public async Task<TodosVm> GetUsersLists(ISender sender)
     {
         return await sender.Send(new GetTodosQuery());
     }
 
-    public async Task<int> CreateTodoList(ISender sender, CreateTodoListCommand command)
+    public async Task<int> CreateUser(ISender sender, CreateTodoListCommand command)
     {
         return await sender.Send(command);
     }
 
-    public async Task<IResult> UpdateTodoList(ISender sender, int id, UpdateTodoListCommand command)
+    public async Task<IResult> UpdateUser(ISender sender, int id, UpdateTodoListCommand command)
     {
         if (id != command.Id) return Results.BadRequest();
         await sender.Send(command);
         return Results.NoContent();
     }
 
-    public async Task<IResult> DeleteTodoList(ISender sender, int id)
+    public async Task<IResult> DeleteUser(ISender sender, int id)
     {
         await sender.Send(new DeleteTodoListCommand(id));
         return Results.NoContent();
     }
 }
+*/

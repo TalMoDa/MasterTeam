@@ -1,4 +1,5 @@
-﻿namespace DreamTeam.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+﻿/*
+namespace DreamTeam.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 public class GetTodoItemsWithPaginationQueryValidator : AbstractValidator<GetTodoItemsWithPaginationQuery>
 {
@@ -14,3 +15,4 @@ public class GetTodoItemsWithPaginationQueryValidator : AbstractValidator<GetTod
             .GreaterThanOrEqualTo(1).WithMessage("PageSize at least greater than or equal to 1.");
     }
 }
+*/

@@ -1,4 +1,5 @@
-﻿using DreamTeam.Application.Common.Interfaces;
+﻿/*
+using DreamTeam.Application.Common.Interfaces;
 using DreamTeam.Domain.Entities;
 using DreamTeam.Domain.Events;
 
@@ -38,3 +39,4 @@ public class CreateTodoItemCommandHandler : IRequestHandler<CreateTodoItemComman
         return entity.Id;
     }
 }
+*/

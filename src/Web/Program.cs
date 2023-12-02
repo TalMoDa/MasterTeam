@@ -1,4 +1,7 @@
+using DreamTeam.Application;
+using DreamTeam.Infrastructure;
 using DreamTeam.Infrastructure.Data;
+using DreamTeam.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,4 +51,7 @@ app.MapEndpoints();
 
 app.Run();
 
-public partial class Program { }
+namespace DreamTeam.Web
+{
+    public partial class Program { }
+}

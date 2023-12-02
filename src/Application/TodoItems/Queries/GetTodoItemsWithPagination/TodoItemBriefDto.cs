@@ -1,4 +1,5 @@
-﻿using DreamTeam.Domain.Entities;
+﻿/*
+using DreamTeam.Domain.Entities;
 
 namespace DreamTeam.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
@@ -20,3 +21,4 @@ public class TodoItemBriefDto
         }
     }
 }
+*/

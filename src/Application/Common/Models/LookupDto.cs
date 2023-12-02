@@ -1,4 +1,5 @@
-﻿using DreamTeam.Domain.Entities;
+﻿/*
+using DreamTeam.Domain.Entities;
 
 namespace DreamTeam.Application.Common.Models;
 
@@ -17,3 +18,4 @@ public class LookupDto
         }
     }
 }
+*/
